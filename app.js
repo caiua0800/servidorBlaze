@@ -12,9 +12,17 @@ let lastPlays = [];
 
 app.use(cors());
 
+// async function startBrowser() {
+//     browser = await puppeteer.launch({ headless: true });
+// }
+
 async function startBrowser() {
-    browser = await puppeteer.launch({ headless: true });
+    browser = await puppeteer.launch({
+        headless: true,
+        executablePath: '/usr/bin/google-chrome', // Mude para o caminho do Chrome se ele estiver instalado.
+    });
 }
+
 
 async function fetchResults() {
     let page;
